@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta element -->
+   <title>Filter Employee</title>
+   <style>
+    body {
+       font-family: Arial, sans-serif;
+       background-color: #f2f2f2;
+       margin: 0;
+       padding: 0;
+    }
+
+    h1 {
+       text-align: center;
+       color: #333;
+    }
+
+    form {
+       width: 50%;
+       margin: 0 auto;
+       padding: 20px;
+       background-color: #fff;
+       border-radius: 8px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+       display: block;
+       margin-bottom: 10px;
+       color: #555;
+    }
+
+    input[type="text"] {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 20px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+       background-color: #007bff;
+       color: #fff;
+       padding: 10px 20px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+       background-color: #0056b3;
+    }
+ </style>
+</head>
+<body>
+    <h1>Filter Employee Details!</h1>
+    <hr>
+    <form action="/filter_emp" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+           <label for="name" class="form-label">Employee First/Last Name</label>
+           <input type="text" class="form-control" id="name" name="name" value="{% if name %}{{ name }}{% endif %}"><br>
+       </div>
+       <div class="mb-3">
+           <label for="department" class="form-label">Department</label>
+           <input type="text" class="form-control" id="department" name="department" value="{% if department %}{{ department }}{% endif %}">
+       </div>
+       <div class="mb-3">
+           <label for="role" class="form-label">Role</label>
+           <input type="text" class="form-control" id="role" name="role" value="{% if role %}{{ role }}{% endif %}">
+       </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+</body>
+</html>
